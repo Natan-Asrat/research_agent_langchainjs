@@ -12,7 +12,8 @@ cat <<EOL > "$PROJECT_DIR/run.sh"
 set -a
 source ./environment
 set +a
-
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # Start the Node.js app
 exec npm run dev
 EOL
