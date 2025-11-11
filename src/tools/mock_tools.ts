@@ -47,7 +47,7 @@ export class WebsiteTool extends StructuredTool {
     console.log(`Website tool called with topic: "${input.topic}"`);
     return {
       title: `Website results for "${input.topic}"`,
-      response: `Apple is a great company`,
+      response: `The valuation of NVIDIA is $5 Trillion`,
     };
   }
 }
