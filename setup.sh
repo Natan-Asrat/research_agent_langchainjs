@@ -9,13 +9,12 @@ echo "Creating run.sh script..."
 cat <<EOL > "$PROJECT_DIR/run.sh"
 #!/bin/bash
 
-# Load environment variables from 'environment' file if it exists
-if [ -f "\$PROJECT_DIR/environment" ]; then
-  export \$(cat "\$PROJECT_DIR/environment" | xargs)
-fi
+set -a
+source ./environment
+set +a
 
 # Start the Node.js app
-exec env \$(cat "\$PROJECT_DIR/environment" | xargs) npm run dev
+exec npm run dev
 EOL
 
 # Make run.sh executable
