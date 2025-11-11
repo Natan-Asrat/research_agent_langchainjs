@@ -1,3 +1,8 @@
+# AI Research Agent with Persistent Memory in LangChain.js
+This project implements a TypeScript-based backend for an AI research agent. The system combines a relational database and vector store to track user details, preferences, and research history, enabling the agent to remember previous queries and avoid redundant research.
+
+MVP Link: [https://marketing-memories.lovable.app/](https://marketing-memories.lovable.app/)
+
 ## Backend Tech Stack
 - Express
 - TypeORM: orm to interface with postgres for storing user details, preferences and messages (for administrative purposes - not as memory)
@@ -16,6 +21,20 @@
 ## Research Activity Diagram
 
 ![Research Activity Diagram](./docs/images/generate-research-agent.drawio.svg)
+
+## UI
+
+- New Research
+
+    ![new research](./docs/images/ui_1.png)
+
+- Settings & Preferences
+
+    ![settings](./docs/images/ui_2.png)
+
+- Memory & Tools Results
+
+    ![memory](./docs/images/ui_3.png)
 
 ## Tests
 
