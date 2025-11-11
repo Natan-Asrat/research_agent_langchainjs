@@ -9,7 +9,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import generateRoute from "./routes/generate";
 import preferencesRoute from "./routes/preferences";
-
+import chatRoute from "./routes/chat";
 const app = express();
 
 
@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use("/auth", router);
 app.use("/generate", generateRoute);
 app.use("/preferences", preferencesRoute);
+app.use("/chat", chatRoute);
 
 
 AppDataSource.initialize()
