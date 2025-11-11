@@ -33,10 +33,7 @@ router.post("/", verifyToken, async (req: TokenRequest, res: Response) => {
     const user = await userRepo.findOne({ where: { id: userId } });
     if (!user) return res.status(404).json({ error: "User not found" });
     const memoryResults = await queryMemory(userId, prompt);
-    console.log("memoryResults", memoryResults)
 
-
-    // Instantiate tools
     const redditTool = new RedditTool();
     const youtubeTool = new YouTubeTool();
     const websiteTool = new WebsiteTool();
@@ -70,6 +67,10 @@ router.post("/", verifyToken, async (req: TokenRequest, res: Response) => {
     // 1. Initial model call -> get tool calls
     const initialResponse = await modelWithTools.invoke(
       `User query: "${prompt}". You may call tools if needed. Return function calls for tools.
+      If the question is about the current valuation of a company, use the website tool.
+      If the question is about current events, use the youtube tool.
+      If the question is about what people think about a company, use the reddit tool.
+      If the question is about a report, use the report tool.
 
       Previous research (memory): ${memoryResults.join("\n\n") || "None"}
       `
